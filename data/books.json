@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "description": "A psychological thriller about a woman who stops speaking after a shocking crime.",
+    "category": "Story",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/id/8231996-L.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A guide to building good habits and breaking bad ones.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://covers.openlibrary.org/b/id/8108691-L.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Brief History of Time",
+    "author": "Stephen Hawking",
+    "description": "Explores space, time, and the universe.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://covers.openlibrary.org/b/id/240726-L.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "Best practices for writing clean and maintainable code.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/id/9616118-L.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "A journey of a shepherd chasing his dream.",
+    "category": "Story",
+    "available_quantity": 10,
+    "image_url": "https://covers.openlibrary.org/b/id/8657891-L.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "description": "Focus deeply to achieve professional success.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://covers.openlibrary.org/b/id/9251881-L.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Cosmos",
+    "author": "Carl Sagan",
+    "description": "A journey through space and time.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://covers.openlibrary.org/b/id/147415-L.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Harry Potter",
+    "author": "J.K. Rowling",
+    "description": "A magical story of a young wizard.",
+    "category": "Story",
+    "available_quantity": 12,
+    "image_url": "https://covers.openlibrary.org/b/id/7984916-L.jpg"
+  },
+  {
+    "id": 9,
+    "title": "AI Superpowers",
+    "author": "Kai-Fu Lee",
+    "description": "Future of AI and global competition.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/id/9251961-L.jpg"
+  },
+  {
+    "id": 10,
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "description": "Evolution explained through genes.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/id/8155416-L.jpg"
+  },
+  {
+    "id": 11,
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian future under surveillance.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+  },
+  {
+    "id": 12,
+    "title": "You Don’t Know JS",
+    "author": "Kyle Simpson",
+    "description": "Deep dive into JavaScript concepts.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://covers.openlibrary.org/b/id/10523358-L.jpg"
+  }
+]
