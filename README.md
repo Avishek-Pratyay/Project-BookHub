@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Project Name:
 
-## Getting Started
+📚 BookHub
 
-First, run the development server:
+A modern online library web application where users can browse books, view details, and borrow books — with secure authentication powered by Better Auth and MongoDB.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌐 Live URL
+🔗 https://project-book-hub.vercel.app 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎯 Purpose:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  BookHub is a full-stack Next.js web application that allows users to:
 
-## Deploy on Vercel
+  -Register and log in securely
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  -Browse a collection of books
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  -Filter books by category
+
+  -Search books by title
+
+  -View detailed information about each book
+
+  -Borrow books (authenticated users only)
+
+  -Manage their personal profile
+
+  
+
+
+✨ Key Features
+
+🔐 Secure Authentication — Register, Login, Logout via Better Auth
+
+🗄️ MongoDB Database — All user sessions and accounts stored in MongoDB Atlas
+
+📱 Fully Responsive — Works on mobile, tablet, and desktop
+
+🔍 Search & Filter — Search books by title, filter by category
+
+👤 User Profile — View and update name and profile photo
+
+🛡️ Protected Routes — Book details only accessible to logged-in users
+
+🎨 Modern UI — Built with Tailwind CSS and DaisyUI
+
+
+
+🛠️ NPM Packages Used:
+
+           next,react,react-dom,better-auth,mongodb,daisyui,tailwindcss,lucide-react,react-hot-toast,swiper.
+
+
+Dev Dependencies:
+
+           eslint,eslint-config-next,@tailwindcss/postcss.
