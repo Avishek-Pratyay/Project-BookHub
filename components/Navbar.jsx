@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* CENTER NAV — hidden on mobile */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-6 font-medium">
           <Link href="/" className={navClass("/")}>Home</Link>
-          <Link href="/books" className={navClass("/books")}>Books</Link>
+          <Link href="/books" className={navClass("/books")}> All Books</Link>
           <Link href="/profile" className={navClass("/profile")}>Profile</Link>
         </div>
 
