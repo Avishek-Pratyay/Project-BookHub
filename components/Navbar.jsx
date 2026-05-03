@@ -92,7 +92,7 @@ export default function Navbar() {
           </Link>
 
           <Link href="/books" className={navClass("/books")} onClick={() => setMenuOpen(false)}>
-            Books
+            All Books
           </Link>
 
           <Link href="/profile" className={navClass("/profile")} onClick={() => setMenuOpen(false)}>
