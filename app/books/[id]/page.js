@@ -4,31 +4,28 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import books from "@/data/books.json";
 import toast from "react-hot-toast";
+import { useSession } from "@/lib/auth-client";
 
 export default function BookDetails() {
   const { id } = useParams();
   const router = useRouter();
 
-  const [user, setUser] = useState(null);
+  const { data: session, isPending } = useSession();
   const [book, setBook] = useState(null);
 
   useEffect(() => {
-    // load user safely
-    const storedUser = localStorage.getItem("user");
-
-    if (!storedUser) {
+    // Redirect to login if not authenticated
+    if (!isPending && !session) {
       router.push("/login");
       return;
     }
 
-    setUser(JSON.parse(storedUser));
-
-    // find book
+    // Find book from local data
     const found = books.find((b) => b.id == id);
     setBook(found);
-  }, [id, router]);
+  }, [id, router, session, isPending]);
 
-  if (!book) return <p className="p-6">Loading...</p>;
+  if (isPending || !book) return <p className="p-6">Loading...</p>;
 
   const handleBorrow = () => {
     toast.success("Book borrowed successfully!");

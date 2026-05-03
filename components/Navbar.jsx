@@ -1,33 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useSession, signOut } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
 
-  // 🔥 LIVE AUTH SYNC
-  const loadUser = () => {
-    const data = localStorage.getItem("user");
-    setUser(data ? JSON.parse(data) : null);
-  };
-
-  useEffect(() => {
-    loadUser();
-
-    // sync across tabs + login updates
-    window.addEventListener("storage", loadUser);
-
-    return () => window.removeEventListener("storage", loadUser);
-  }, []);
+  // 🔥 LIVE AUTH SYNC — Better Auth handles this automatically via useSession
+  const { data: session } = useSession();
+  const user = session?.user || null;
 
   // LOGOUT
-  const logout = () => {
-    localStorage.removeItem("user");
-    loadUser();
+  const logout = async () => {
+    await signOut();
     router.push("/");
   };
 

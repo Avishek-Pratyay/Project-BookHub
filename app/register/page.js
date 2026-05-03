@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { signUp, signIn, signOut } from "@/lib/auth-client";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -11,8 +12,9 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !photo || !password) {
@@ -20,14 +22,34 @@ export default function RegisterPage() {
       return;
     }
 
-    toast.success("Registration successful");
+    setLoading(true);
 
+    const { error } = await signUp.email({
+      name,
+      email,
+      password,
+      image: photo, // stored as user avatar in MongoDB
+    });
+
+    setLoading(false);
+
+    if (error) {
+      toast.error(error.message || "Registration failed");
+      return;
+    }
+    await signOut();
+
+    toast.success("Registration successful");
     router.push("/login");
   };
 
-  const handleGoogleRegister = () => {
-    toast.success("Google registration successful");
-    router.push("/");
+  // Google OAuth register via Better Auth
+  const handleGoogleRegister = async () => {
+    const { error } = await signIn.social({ provider: "google" });
+
+    if (error) {
+      toast.error(error.message || "Google registration failed");
+    }
   };
 
   return (
@@ -65,8 +87,8 @@ export default function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="btn btn-primary w-full">
-          Register
+        <button className="btn btn-primary w-full" disabled={loading}>
+          {loading ? "Registering..." : "Register"}
         </button>
 
         {/* GOOGLE REGISTER */}

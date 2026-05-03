@@ -1,15 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useSession } from "@/lib/auth-client";
 
 export default function ProfilePage() {
-  const [user, setUser] = useState(null);
+  const { data: session, isPending } = useSession();
+  const user = session?.user;
 
-  useEffect(() => {
-    const data = localStorage.getItem("user");
-    setUser(data ? JSON.parse(data) : null);
-  }, []);
+  if (isPending) {
+    return (
+      <div className="text-center mt-20">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
 
   if (!user) {
     return (
@@ -25,7 +29,7 @@ export default function ProfilePage() {
       <h1 className="text-2xl font-bold mb-4">My Profile</h1>
 
       <img
-        src={user.photo || "https://i.ibb.co/2Wz5F8r/user.png"}
+        src={user.image || "https://i.ibb.co/2Wz5F8r/user.png"}
         className="w-24 h-24 rounded-full mb-4"
       />
 

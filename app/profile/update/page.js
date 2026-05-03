@@ -1,41 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { authClient, useSession } from "@/lib/auth-client";
 
 export default function UpdateProfile() {
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  // Pre-fill form with current user data from session
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setName(user.name || "");
-      setPhoto(user.photo || "");
+    if (session?.user) {
+      setName(session.user.name || "");
+      setPhoto(session.user.image || "");
     }
-  }, []);
+  }, [session]);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
-    const oldUser = JSON.parse(localStorage.getItem("user"));
+    setLoading(true);
 
-    const updatedUser = {
-      ...oldUser,
+    const { error } = await authClient.updateUser({
       name,
-      photo,
-    };
+      image: photo,
+    });
 
-    localStorage.setItem("user", JSON.stringify(updatedUser));
+    setLoading(false);
+
+    if (error) {
+      toast.error(error.message || "Update failed");
+      return;
+    }
 
     toast.success("Profile updated");
-
-    // 🔥 refresh navbar/profile instantly
-    window.dispatchEvent(new Event("storage"));
-
     router.push("/profile");
   };
 
@@ -65,8 +68,8 @@ export default function UpdateProfile() {
           onChange={(e) => setPhoto(e.target.value)}
         />
 
-        <button className="btn btn-primary w-full">
-          Update Information
+        <button className="btn btn-primary w-full" disabled={loading}>
+          {loading ? "Updating..." : "Update Information"}
         </button>
 
       </form>

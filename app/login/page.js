@@ -3,14 +3,16 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { signIn } from "@/lib/auth-client";
 
 export default function LoginPage() {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -18,34 +20,28 @@ export default function LoginPage() {
       return;
     }
 
-    const user = {
-      email,
-      name: email.split("@")[0],
-    };
+    setLoading(true);
 
-    localStorage.setItem("user", JSON.stringify(user));
+    const { error } = await signIn.email({ email, password });
+
+    setLoading(false);
+
+    if (error) {
+      toast.error(error.message || "Login failed");
+      return;
+    }
 
     toast.success("Login successful");
-
-    window.dispatchEvent(new Event("storage"));
-
     router.push("/");
   };
 
-  // 🔵 Google login (assignment-safe mock)
-  const handleGoogleLogin = () => {
-    const user = {
-      email: "googleuser@gmail.com",
-      name: "Google User",
-    };
+  // Google OAuth login via Better Auth
+  const handleGoogleLogin = async () => {
+    const { error } = await signIn.social({ provider: "google" });
 
-    localStorage.setItem("user", JSON.stringify(user));
-
-    toast.success("Google login successful");
-
-    window.dispatchEvent(new Event("storage"));
-
-    router.push("/");
+    if (error) {
+      toast.error(error.message || "Google login failed");
+    }
   };
 
   return (
@@ -71,8 +67,8 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="btn btn-primary w-full">
-          Login
+        <button className="btn btn-primary w-full" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         {/* GOOGLE LOGIN */}
