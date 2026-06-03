@@ -1,61 +1,151 @@
-Project Name:
 
-📚 BookHub
 
-A modern online library web application where users can browse books, view details, and borrow books — with secure authentication powered by Better Auth and MongoDB.
 
-🌐 Live URL
+# 📚 Project Information (BookHub)
+
+## 🎯 Problem Solved
+
+BookHub solves the difficulty of managing and accessing books efficiently by providing a centralized digital library platform. Users can browse books, search by title, filter by category, view detailed information, and borrow books through a smooth and modern web interface.
+
+---
+
+## 👥 Target Users
+
+* 🎓 Students
+* 📖 Book Enthusiasts
+* 🔬 Researchers
+* 👨‍🏫 Teachers & Educators
+* 🏛️ Library Members
+* 🌍 General Readers
+
+---
+
+## 🚀 Frontend Deployment
+
+* ▲ Vercel
+* 🌐 Live URL
 🔗 https://project-book-hub.vercel.app 
 
+---
 
+## ⚙️ Backend Deployment
 
+* ⚡ Next.js API Routes (Integrated Backend)
 
+---
 
+## 🗄️ Database
 
-🎯 Purpose:
+* 🍃 MongoDB (Atlas / Cloud Database)
 
-  BookHub is a full-stack Next.js web application that allows users to:
+---
 
-  -Register and log in securely
+## 🛡️ User Roles
 
-  -Browse a collection of books
+### 👤 User
 
-  -Filter books by category
+* Register an account
+* Login / Logout
+* Browse all books
+* Search books by title
+* Filter books by category
+* View book details
+* Borrow books
+* View and update profile information
 
-  -Search books by title
+---
 
-  -View detailed information about each book
+## 🔗 Server Repository
 
-  -Borrow books (authenticated users only)
+* 📦 Same repository (Full-stack Next.js project)
 
-  -Manage their personal profile
+---
 
-  
+## 🔑 Demo Credentials
 
+### 👤 User Account
 
-✨ Key Features
+* **Email:** `user@example.com`
+* **Password:** `123456`
 
-🔐 Secure Authentication — Register, Login, Logout via Better Auth
+> ⚠️ Replace with real credentials if needed for submission/demo.
 
-🗄️ MongoDB Database — All user sessions and accounts stored in MongoDB Atlas
+---
 
-📱 Fully Responsive — Works on mobile, tablet, and desktop
+## 📡 API Endpoints (Next.js API Routes)
 
-🔍 Search & Filter — Search books by title, filter by category
+### 🔐 Authentication
 
-👤 User Profile — View and update name and profile photo
+* `POST /api/auth/register` → Register new user
+* `POST /api/auth/login` → User login
+* `POST /api/auth/logout` → User logout
+* `GET /api/auth/session` → Get current session
 
-🛡️ Protected Routes — Book details only accessible to logged-in users
+---
 
-🎨 Modern UI — Built with Tailwind CSS and DaisyUI
+### 📚 Books
 
+* `GET /api/books` → Get all books
+* `GET /api/books/:id` → Get single book details
+* `POST /api/books/borrow` → Borrow a book
 
+---
 
-🛠️ NPM Packages Used:
+### 👤 User Profile
 
-           next,react,react-dom,better-auth,mongodb,daisyui,tailwindcss,lucide-react,react-hot-toast,swiper.
+* `GET /api/profile` → Get user profile
+* `PATCH /api/profile` → Update profile information
 
+---
 
-Dev Dependencies:
+## 🧪 Manual Test Cases
 
-           eslint,eslint-config-next,@tailwindcss/postcss.
+### 🔐 Authentication
+
+* ✅ Register with valid data successfully creates account
+* ✅ Login with correct credentials redirects user
+* ✅ Login fails with invalid credentials
+* ✅ Logout clears session successfully
+
+---
+
+### 📚 Book Features
+
+* ✅ Books load correctly from database
+* ✅ Search by title returns correct results
+* ✅ Filter by category works properly
+* ✅ Book details page opens successfully
+* ✅ Borrow book shows success message
+
+---
+
+### 👤 Profile Features
+
+* ✅ Profile loads after login
+* ✅ Profile updates successfully
+* ✅ Unauthorized users are redirected to login
+
+---
+
+## ⚠️ Known Limitations
+
+* 🔄 No book return system implemented yet
+* 👨‍💼 No admin dashboard for managing books/users
+* ⭐ No rating or review system
+* 📧 No email verification or password reset system
+* 🔔 No notification system for due dates
+* 📊 Basic analytics not implemented
+
+---
+
+## 🌟 Future Improvements
+
+* 🔐 Improve authentication with BetterAuth full session handling
+* 🌐 Add Google/GitHub OAuth login
+* 👨‍💼 Build Admin Dashboard for full control
+* 🔄 Add book return + borrowing history system
+* ⭐ Add ratings and reviews
+* 🔍 Advanced search + pagination
+* 🔔 Email notifications for due dates
+* 📱 Improve mobile responsiveness (PWA support)
+* 📊 Analytics dashboard for admin
