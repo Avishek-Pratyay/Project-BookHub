@@ -65,10 +65,9 @@ BookHub solves the difficulty of managing and accessing books efficiently by pro
 
 ### 👤 User Account
 
-* **Email:** `user@example.com`
+* **Email:** `a@gmail.com`
 * **Password:** `123456`
 
-> ⚠️ Replace with real credentials if needed for submission/demo.
 
 ---
 
